@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(node -e \"require\\('./index.js'\\)\")",
+      "Bash(curl -s -X POST http://localhost:3001/api/slides/parse -H 'Content-Type: application/json' -d '{\"markdown\": \"# Slide One\\\\n\\\\nHello world.\\\\n\\\\n---\\\\n\\\\n# Slide Two\\\\n\\\\n- Point A\\\\n- Point B\"}')",
+      "Bash(kill %1)",
+      "Bash(node -e ' *)",
+      "Bash(curl -s -o /tmp/test.pdf -D /tmp/headers.txt -X POST http://localhost:3001/api/export -H 'Content-Type: application/json' -d '{\"markdown\": \"# Slide One\\\\n\\\\nHello world.\\\\n\\\\n---\\\\n\\\\n# Slide Two\\\\n\\\\n- Point A\\\\n- Point B\", \"theme\": \"modern\", \"format\": \"pdf\"}')",
+      "Read(//tmp/**)",
+      "Bash(xxd /tmp/test.pdf)"
+    ]
+  }
+}
